@@ -5,15 +5,14 @@ This is the top-level component of the app.
 It contains the top-level state.
 ==================================================*/
 import React, { Component } from "react";
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // Import other components
-import Home from './components/Home';
-import UserProfile from './components/UserProfile';
-import LogIn from './components/Login';
-import Credits from './components/Credits';
-import Debits from './components/Debits';
+import Home from "./components/Home";
+import UserProfile from "./components/UserProfile";
+import LogIn from "./components/Login";
+import Credits from "./components/Credits";
+import Debits from "./components/Debits";
 
 class App extends Component {
   constructor() {
@@ -21,7 +20,8 @@ class App extends Component {
     super();
     this.state = {
       accountBalance: 1234567.89,
-      creditSum : 0,
+      creditSum: 0,
+      debitSum: 0,
       creditList: [],
       debitList: [],
       currentUser: {
@@ -38,19 +38,31 @@ class App extends Component {
     this.setState({ currentUser: newUser });
   };
 
-  componentDidMount(){
+  componentDidMount() {
     fetch("https://johnnylaicode.github.io/api/credits.json")
       .then((response) => response.json())
-      .then((data) => this.setState({creditList: data}))
+      .then((data) => {
+        this.setState({
+          creditSum: data.reduce(
+            (accumulator, val) => accumulator + Number(val.amount),
+            0
+          ),
+          creditList: data,
+        });
+      })
       .catch((error) => console.error("Error fetching data:", error));
-    console.log(this.creditList)
   }
 
   addCredit = (newItem) => {
-    this.setState(
-      (prev) => ({
+    this.setState((prev) => {
+      const newSum = prev.creditSum + Number(newItem.amount);
+      
+      return {
         creditList: [...prev.creditList, newItem],
-      }))
+        creditSum: newSum,
+        accountBalance: newSum - prev.debitSum,
+      };
+    });
   };
 
   // Create Routes and React elements to be rendered using React components
@@ -68,7 +80,13 @@ class App extends Component {
     const LogInComponent = () => (
       <LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />
     );
-    const CreditsComponent = () => <Credits credits={this.state.creditList} addCredit={this.addCredit} accountBalance={this.state.accountBalance}/>;
+    const CreditsComponent = () => (
+      <Credits
+        credits={this.state.creditList}
+        addCredit={this.addCredit}
+        accountBalance={this.state.accountBalance}
+      />
+    );
     const DebitsComponent = () => <Debits debits={this.state.debitList} />;
 
     // Important: Include the "basename" in Router, which is needed for deploying the React app to GitHub Pages

@@ -22,8 +22,6 @@ const Credits = (props) => {
     
   };
 
-  console.log(props);
-
   return (
     <div>
       <h1>Credits</h1>
