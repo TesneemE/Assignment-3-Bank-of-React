@@ -5,49 +5,36 @@ The Credits component contains information for Credits page view.
 Note: You need to work on this file for the Assignment.
 ==================================================*/
 import { Link } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 
 const Credits = (props) => {
-  const [credit, setCredit] = useState([]);
   const [creditDescription, setCreditDescription] = useState("");
-  const [creditAmount, setCreditAmount] = useState();
-
-  useEffect(() => {
-    fetch("https://johnnylaicode.github.io/api/credits.json")
-      .then((response) => response.json())
-      .then((data) => setCredit(data))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
-
-  const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString();
-  };
+  const [creditAmount, setCreditAmount] = useState(0);
 
   const handleChange = () => {
     const newItem = {
-      id: credit.length + 1,
+      id: props.credits.length + 1,
       description: creditDescription,
-      amount: creditAmount,
-      date: new Date().toISOString()
+      amount: Number(creditAmount).toFixed(2),
+      date: new Date().toISOString(),
     };
+    props.addCredit(newItem);
     
-    setCredit([...credit, newItem]);
-    console.log(credit);
   };
 
-  console.log(credit);
+  console.log(props);
 
   return (
     <div>
       <h1>Credits</h1>
       <br />
-      <p>Balance: </p>
+      <p>Balance: {props.accountBalance}</p>
       <ul>
-        {credit.map((item) => {
+        {props.credits.map((item) => {
           return (
             <li key={item.id}>
               {item.amount} {item.description} {item.amount}{" "}
-              {formatDate(item.date)}{" "}
+              {new Date(item.date).toISOString().split("T")[0]}{" "}
             </li>
           );
         })}
@@ -71,7 +58,9 @@ const Credits = (props) => {
           onChange={(e) => setCreditAmount(e.target.value)}
         ></input>
       </label>
-      <button type="submit" onClick={handleChange}>Add Credit</button>
+      <button type="submit" onClick={handleChange}>
+        Add Credit
+      </button>
       <Link to="/">Return to Home</Link>
     </div>
   );
