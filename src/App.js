@@ -49,18 +49,23 @@ class App extends Component {
           ),
           creditList: data,
         });
+        this.updateBalance();
       })
       .catch((error) => console.error("Error fetching data:", error));
   }
 
+  updateBalance = () => {
+    this.setState({
+      accountBalance: this.state.creditSum - this.state.debitSum,
+    });
+  };
+
   addCredit = (newItem) => {
     this.setState((prev) => {
-      const newSum = prev.creditSum + Number(newItem.amount);
-      
       return {
         creditList: [...prev.creditList, newItem],
-        creditSum: newSum,
-        accountBalance: newSum - prev.debitSum,
+        creditSum: prev.creditSum + Number(newItem.amount),
+        accountBalance: prev.creditSum + Number(newItem.amount) - prev.debitSum,
       };
     });
   };

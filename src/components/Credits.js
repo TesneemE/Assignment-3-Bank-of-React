@@ -26,7 +26,7 @@ const Credits = (props) => {
     <div>
       <h1>Credits</h1>
       <br />
-      <p>Balance: {props.accountBalance}</p>
+      <p>Balance: {Number(props.accountBalance).toFixed(2)}</p>
       <ul>
         {props.credits.map((item) => {
           return (
@@ -59,6 +59,7 @@ const Credits = (props) => {
       <button type="submit" onClick={handleChange}>
         Add Credit
       </button>
+      <br></br>
       <Link to="/">Return to Home</Link>
     </div>
   );
