@@ -11,6 +11,7 @@ const Credits = (props) => {
   const [creditDescription, setCreditDescription] = useState("");
   const [creditAmount, setCreditAmount] = useState(0);
 
+  // adds a new item to credit list once the user clicks the button
   const handleChange = () => {
     const newItem = {
       id: props.credits.length + 1,
@@ -19,7 +20,6 @@ const Credits = (props) => {
       date: new Date().toISOString(),
     };
     props.addCredit(newItem);
-    
   };
 
   return (

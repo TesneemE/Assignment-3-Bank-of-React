@@ -39,6 +39,7 @@ class App extends Component {
   };
 
   componentDidMount() {
+    // Fetches the data and updates the constructor variables
     fetch("https://johnnylaicode.github.io/api/credits.json")
       .then((response) => response.json())
       .then((data) => {
@@ -54,12 +55,14 @@ class App extends Component {
       .catch((error) => console.error("Error fetching data:", error));
   }
 
+  // updates the overall account balanace by ubstracting debitsum from creditsum
   updateBalance = () => {
     this.setState({
       accountBalance: this.state.creditSum - this.state.debitSum,
     });
   };
 
+  // adds a new item to the credit list while updating creditsum 
   addCredit = (newItem) => {
     this.setState((prev) => {
       return {
