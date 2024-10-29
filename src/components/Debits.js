@@ -10,7 +10,7 @@ import React, {useState} from "react"
 const Debits = (props) => {
   const [debitData, setDebitData]= useState({
     debitDescription: "",
-    debitAmount: 0,
+    debitAmount: "",
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
