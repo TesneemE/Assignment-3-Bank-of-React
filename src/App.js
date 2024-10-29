@@ -53,6 +53,19 @@ class App extends Component {
         this.updateBalance();
       })
       .catch((error) => console.error("Error fetching data:", error));
+      fetch("https://johnnylaicode.github.io/api/debits.json")
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+         debitSum: data.reduce(
+            (accumulator, val) => accumulator + Number(val.amount),
+            0
+          ),
+          debitList: data,
+        });
+        this.updateBalance();
+      })
+      .catch((error) => console.error("Error fetching data:", error));
   }
 
   // updates the overall account balanace by ubstracting debitsum from creditsum
@@ -73,6 +86,15 @@ class App extends Component {
     });
   };
 
+  addDebit = (newItem) => {
+    this.setState((prev) => {
+      return {
+        debitList: [...prev.debitList, newItem],
+        debitSum: prev.debitSum + Number(newItem.amount),
+        accountBalance: prev.creditSum + Number(newItem.amount) - prev.debitSum,
+      };
+    });
+  };
   // Create Routes and React elements to be rendered using React components
   render() {
     // Create React elements and pass input props to components
@@ -99,7 +121,7 @@ class App extends Component {
 
     // Important: Include the "basename" in Router, which is needed for deploying the React app to GitHub Pages
     return (
-      <Router basename="/bank-of-react-starter-code">
+      <Router basename="/Assignment-3-Bank-of-React">
         <div>
           <Route exact path="/" render={HomeComponent} />
           <Route exact path="/userProfile" render={UserProfileComponent} />
