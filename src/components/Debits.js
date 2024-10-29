@@ -6,27 +6,28 @@ Note: You need to work on this file for the Assignment.
 ==================================================*/
 import {Link} from 'react-router-dom';
 import React, {useState} from "react"
-import reactRouter from 'react-router';
+// import reactRouter from 'react-router';
 const Debits = (props) => {
   const [debitData, setDebitData]= useState({
     debitDescription: "",
     debitAmount: 0,
   });
-  const handleChange=(e)=>{
-    const {name,value}=e.target;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
     setDebitData((prevData) => ({
       ...prevData,
       [name]: name === "amount" ? Number(value) : value, 
     }));
-  }
+  };
   const handleAddDebit =()=> { 
     const newItem= {
       id: props.debits.length+1,
       description: debitData.debitDescription,
-      amount: debitData.debitAmount.toFixed(2),
-      date: new Date.toISOString()
+      amount:  Number(debitData.debitAmount).toFixed(2),
+      date: new Date().toISOString(),
     }
     props.addDebit(newItem);
+    setDebitData({ debitDescription: "", debitAmount: 0 });
 
   }
   // Create the list of Debit items
@@ -44,40 +45,37 @@ const Debits = (props) => {
       <br />
       <p>Balance: {Number(props.accountBalance).toFixed(2)}</p>
       <ul>
-        {props.debits.map((item) => {
-          return (
-            <li key={item.id}>
-              {item.amount} {item.description} {item.amount}{" "}
-              {new Date(item.date).toISOString().split("T")[0]}{" "}
-            </li>
-          );
-        })}
+        {props.debits.map((item) => (
+          <li key={item.id}>
+            {item.amount} {item.description} {item.amount}{" "}
+            {new Date(item.date).toISOString().split("T")[0]}{" "}
+          </li>
+        ))}
       </ul>
-      Description:{" "}
       <label>
-        {" "}
+        Description:{" "}
         <input
           type="text"
           id="description"
-          name="description"
+          name="debitDescription"
           value={debitData.debitDescription}
           onChange={handleChange}
-        ></input>
+        />
       </label>
       <label>
         Amount:{" "}
         <input
           type="number"
           id="amount"
-          name="amount"
+          name="debitAmount" 
           value={debitData.debitAmount}
           onChange={handleChange}
-        ></input>
+        />
       </label>
       <button type="submit" onClick={handleAddDebit}>
         Add Debit
       </button>
-      <br></br>
+      <br />
       <Link to="/">Return to Home</Link>
     </div>
   );
