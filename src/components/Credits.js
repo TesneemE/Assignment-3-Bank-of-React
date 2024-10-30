@@ -31,7 +31,7 @@ const Credits = (props) => {
         {props.credits.map((item) => {
           return (
             <li key={item.id}>
-              {item.amount} {item.description} {item.amount}{" "}
+              {item.amount} {item.description}{" "}
               {new Date(item.date).toISOString().split("T")[0]}{" "}
             </li>
           );
