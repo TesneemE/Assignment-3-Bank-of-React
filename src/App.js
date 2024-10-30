@@ -91,7 +91,7 @@ class App extends Component {
       return {
         debitList: [...prev.debitList, newItem],
         debitSum: prev.debitSum + Number(newItem.amount),
-        accountBalance: prev.creditSum + Number(newItem.amount) - prev.debitSum,
+        accountBalance: prev.creditSum - Number(newItem.amount) - prev.debitSum,
       };
     });
   };
