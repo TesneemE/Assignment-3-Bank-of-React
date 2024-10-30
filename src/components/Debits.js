@@ -26,9 +26,8 @@ const Debits = (props) => {
       amount:  Number(debitData.debitAmount).toFixed(2),
       date: new Date().toISOString(),
     }
-    props.addDebit(newItem);
-    setDebitData({ debitDescription: "", debitAmount: 0 });
-
+    props.addDebit(newItem); 
+    // setDebitData({ debitDescription: "", debitAmount: 0 }); resets input values
   }
   // Create the list of Debit items
   // let debitsView = () => {
