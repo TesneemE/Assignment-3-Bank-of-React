@@ -1,0 +1,69 @@
+
+
+/* Home container styles with a more visible gradient mix */
+.home-page-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: 
+    linear-gradient(45deg, rgb(163, 39, 169), rgb(97, 3, 118)), /* Linear gradient */
+    radial-gradient(circle, rgb(112, 32, 146) 30%, rgb(138, 67, 126) 100%); /* Radial gradient */
+}
+
+/* Styling for the heading (h1) */
+.home-page-container h1 {
+    color: white; /* Make the heading text white */
+    font-size: 3rem; /* Optional: adjust size for better visibility */
+    margin-bottom: 20px; /* Optional: add some spacing below the heading */
+}
+
+/* Styling for the links inside the Home page */
+.home-page-container a {
+    display: inline-block; /* Make the link behave like a block element */
+    background-color: rgb(13, 11, 12); /* Dark background color */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Padding for the link */
+    border-radius: 30px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-size: 18px; /* Increase font size for readability */
+    margin: 10px 0; /* Space out the links */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for the links */
+.home-page-container a:hover {
+    background-color: rgb(219, 108, 201); /* Light purple when hovered */
+    transform: scale(1.05); /* Slightly enlarge the link on hover */
+}
+
+/* Home button styles */
+.home-page-button {
+    background-color: rgb(13, 11, 12);
+    border-radius: 50px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for hover */
+}
+
+/* Home button hover effect */
+.home-page-button:hover {
+    background-color: rgb(219, 108, 201);
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Styling for the Account Balance */
+.account-balance-container {
+    color: white; /* Make the balance text white */
+    font-size: 25px; /* Large font size for the balance */
+    font-weight: bold; /* Make the font weight bold */
+    margin-top: 20px; /* Optional: add some spacing above the balance */
+    text-align: center; /* Center-align the balance */
+}
