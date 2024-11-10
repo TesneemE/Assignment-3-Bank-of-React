@@ -6,6 +6,7 @@ Note: You need to work on this file for the Assignment.
 ==================================================*/
 import { Link } from "react-router-dom";
 import React, {useState } from "react";
+import '../components/Credits.css';
 
 const Credits = (props) => {
   const [creditDescription, setCreditDescription] = useState("");
@@ -23,44 +24,34 @@ const Credits = (props) => {
   };
 
   return (
-    <div>
+    <div className="credits-page">  
+    <div className="credits-container">
       <h1>Credits</h1>
-      <br />
       <p>Balance: {Number(props.accountBalance).toFixed(2)}</p>
       <ul>
-        {props.credits.map((item) => {
-          return (
-            <li key={item.id}>
-              {item.amount} {item.description}{" "}
-              {new Date(item.date).toISOString().split("T")[0]}{" "}
-            </li>
-          );
-        })}
+        {props.credits.map((item) => (
+          <li key={item.id}>
+            {item.amount} {item.description} {new Date(item.date).toISOString().split("T")[0]}
+          </li>
+        ))}
       </ul>
-      Description:{" "}
-      <label>
-        {" "}
-        <input
-          type="text"
-          id="description"
-          name="description"
-          onChange={(e) => setCreditDescription(e.target.value)}
-        ></input>
-      </label>
-      <label>
-        Amount:{" "}
-        <input
-          type="number"
-          id="amount"
-          name="amount"
-          onChange={(e) => setCreditAmount(e.target.value)}
-        ></input>
-      </label>
-      <button type="submit" onClick={handleChange}>
-        Add Credit
-      </button>
-      <br></br>
+      <label>Description:</label>
+      <input
+        type="text"
+        id="description"
+        name="description"
+        onChange={(e) => setCreditDescription(e.target.value)}
+      />
+      <label>Amount:</label>
+      <input
+        type="number"
+        id="amount"
+        name="amount"
+        onChange={(e) => setCreditAmount(e.target.value)}
+      />
+      <button type="submit" onClick={handleChange}>Add Credit</button>
       <Link to="/">Return to Home</Link>
+    </div>
     </div>
   );
 };
