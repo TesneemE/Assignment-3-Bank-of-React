@@ -1,0 +1,101 @@
+/* Outer container to center the content on the page */
+.credits-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #d36dd7, #8c5dd6);
+}
+
+/* Inner container styling */
+.credits-container {
+    background-color: #f7e9fe;
+    border-radius: 15px;
+    padding: 30px;
+    width: 400px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+  
+  /* Title */
+  .credits-container h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  /* Balance display */
+  .credits-container p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 15px 0;
+  }
+  
+  /* List of credits */
+  .credits-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  .credits-container li {
+    font-size: 16px;
+    padding: 10px;
+    background-color: #e8d7f9;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+  
+  /* Input labels */
+  .credits-container label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  /* Input fields */
+  .credits-container input[type="text"],
+  .credits-container input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  
+  /* Button styling */
+  .credits-container button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 15px;
+  }
+  
+  .credits-container button:hover {
+    background-color: #555;
+  }
+  
+  /* Link styling */
+  .credits-container a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #000;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+  }
+  
+  .credits-container a:hover {
+    background-color: #333;
+  }

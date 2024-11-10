@@ -5,7 +5,10 @@ The Debits component contains information for Debits page view.
 Note: You need to work on this file for the Assignment.
 ==================================================*/
 import {Link} from 'react-router-dom';
-import React, {useState} from "react"
+import React, {useState} from "react";
+import '../components/Debits.css';
+ 
+
 // import reactRouter from 'react-router';
 const Debits = (props) => {
   const [debitData, setDebitData]= useState({
@@ -39,7 +42,8 @@ const Debits = (props) => {
   // }
   // Render the list of Debit items and a form to input new Debit item
   return (
-    <div>
+    <div className="debits-page">
+      <div className="debits-container">
       <h1>Debits</h1>
       <br />
       <p>Balance: {Number(props.accountBalance).toFixed(2)}</p>
@@ -76,6 +80,7 @@ const Debits = (props) => {
       </button>
       <br />
       <Link to="/">Return to Home</Link>
+    </div>
     </div>
   );
 };
