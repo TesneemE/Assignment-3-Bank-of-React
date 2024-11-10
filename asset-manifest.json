@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/Assignemnt-3-Bank-of-React/static/css/main.01e685fb.css",
-    "main.js": "/Assignemnt-3-Bank-of-React/static/js/main.939f9963.js",
-    "static/js/453.d81f9453.chunk.js": "/Assignemnt-3-Bank-of-React/static/js/453.d81f9453.chunk.js",
-    "index.html": "/Assignemnt-3-Bank-of-React/index.html",
-    "main.01e685fb.css.map": "/Assignemnt-3-Bank-of-React/static/css/main.01e685fb.css.map",
-    "main.939f9963.js.map": "/Assignemnt-3-Bank-of-React/static/js/main.939f9963.js.map",
-    "453.d81f9453.chunk.js.map": "/Assignemnt-3-Bank-of-React/static/js/453.d81f9453.chunk.js.map"
+    "main.css": "/Assignment-3-Bank-of-React/static/css/main.df570152.css",
+    "main.js": "/Assignment-3-Bank-of-React/static/js/main.a2d8b292.js",
+    "static/js/453.d81f9453.chunk.js": "/Assignment-3-Bank-of-React/static/js/453.d81f9453.chunk.js",
+    "static/media/icon.webp": "/Assignment-3-Bank-of-React/static/media/icon.8f368f697159c7982642.webp",
+    "index.html": "/Assignment-3-Bank-of-React/index.html",
+    "main.df570152.css.map": "/Assignment-3-Bank-of-React/static/css/main.df570152.css.map",
+    "main.a2d8b292.js.map": "/Assignment-3-Bank-of-React/static/js/main.a2d8b292.js.map",
+    "453.d81f9453.chunk.js.map": "/Assignment-3-Bank-of-React/static/js/453.d81f9453.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.01e685fb.css",
-    "static/js/main.939f9963.js"
+    "static/css/main.df570152.css",
+    "static/js/main.a2d8b292.js"
   ]
 }
