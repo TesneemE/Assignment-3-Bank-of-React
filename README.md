@@ -1,6 +1,8 @@
 # bank-of-react-starter-code
 This repository is the starter code for Assignment 3 - Bank of React.
 
+Team Members (and GitHub Usernames): Anita Prova (anitaprova), Iman Ikram (ImanIkram), Tesneem Essa (TesneemE), Stephanie Njoku (stephxsb)
+
 ### Live Link 
 [Website link](https://tesneeme.github.io/Assignment-3-Bank-of-React/)
 
